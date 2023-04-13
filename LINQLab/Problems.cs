@@ -116,9 +116,9 @@
 //            // This LINQ query will retreive all of the users who are assigned to the role of Customer.
 //            var customerUsers = _context.Userroles.Include(ur => ur.Role).Include(ur => ur.User).Where(ur => ur.Role.RoleName == "Customer");
 //            Console.WriteLine("RDemoThree: Customer Users");
-//            foreach (Userrole Userrole in customerUsers)
+//            foreach (Userrole userrole in customerUsers)
 //            {
-//                Console.WriteLine($"Email: {Userrole.User.Email} Role: {Userrole.Role.RoleName}");
+//                Console.WriteLine($"Email: {userrole.User.Email} Role: {userrole.Role.RoleName}");
 //            }
 //        }
 //        public void RProblemSix()
@@ -232,8 +232,8 @@
 //        private void DDemoOne()
 //        {
 //            // Delete the role relationship from the user who has the email "oda@gmail.com" using LINQ.
-//            var Userrole = _context.Userroles.Where(ur => ur.User.Email == "oda@gmail.com").SingleOrDefault();
-//            _context.Userroles.Remove(Userrole);
+//            var userrole = _context.Userroles.Where(ur => ur.User.Email == "oda@gmail.com").SingleOrDefault();
+//            _context.Userroles.Remove(userrole);
 
 //            _context.SaveChanges();
 
