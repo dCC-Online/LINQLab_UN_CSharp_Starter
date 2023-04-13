@@ -27,7 +27,7 @@
 //            //RProblemFive();
 
 //            //// <><><><><><><><> R Actions (Read) with Foreign Keys <><><><><><><><><>
-//            RDemoThree();
+//            //RDemoThree();
 //            //RProblemSix();
 //            //RProblemSeven();
 //            //RProblemEight();
@@ -54,7 +54,7 @@
 //        // <><><><><><><><> R Actions (Read) <><><><><><><><><>
 //        private void RDemoOne()
 //        {
-//            // This query will return all the users from the User table.
+//            // This LINQ query will return all the users from the User table.
 //            var users = _context.Users.ToList();
 
 //            Console.WriteLine("RDemoOne: Emails of All users");
@@ -93,16 +93,17 @@
 //        {
 //            // Write a LINQ query that gets each product whose name that CONTAINS an "s".
 //        }
+
 //        public void RProblemFour()
 //        {
-//            // Write a LINQ query that gets all the users who registered BEFORE 2016
+//            // Write a LINQ query that gets all the users who registered BEFORE 2016.
 //            // Then print each user's email and registration date to the console.
 
 //        }
 
 //        public void RProblemFive()
 //        {
-//            // Write a LINQ query that gets all of the users who registered AFTER 2016 and BEFORE 2018
+//            // Write a LINQ query that gets all of the users who registered AFTER 2016 and BEFORE 2018.
 //            // Then print each user's email and registration date to the console.
 
 //        }
@@ -141,7 +142,7 @@
 //        public void RProblemEight()
 //        {
 //            // Write a query that retrieves all of the products in the shopping cart of users who have the role of "Employee".
-//            // Then print the user's email as well as the product's name, price, and quantity to the console.
+//            // Then print the product's name, price, and quantity to the console along with the email of the user that has it in their cart.
 
 //        }
 
@@ -151,13 +152,13 @@
 //        //IMPORTANT: The following methods will MODIFY your database. Even if you stop and restart the application, any changes made to the database will persist!
 //        //Calling a Create method more than once will result in duplicate data added to the table.
 //        //Calling an Update or Delete method more than once might cause an error. For instance, if you call a method that deletes the Nintendo Switch from the database, then try to call the method again, there will no longer be a Nintendo Switch to delete!
-//        //You may want to use Breakpoints or WriteLines to verify your LINQ Queries are finding the correct items before you add the SaveChanges() to the method!
+//        //You may want to use Breakpoints or WriteLines to verify your LINQ Queries are finding the correct items before you add the .SaveChanges() to the method!
 
 //        // <><> C Actions (Create) <><>
 
 //        private void CDemoOne()
 //        {
-//            // Create a new User object and add that user to the Users table using LINQ.
+//            // This will create a new User object and add it to the Users table.
 //            User newUser = new User()
 //            {
 //                Email = "david@gmail.com",
@@ -170,14 +171,14 @@
 
 //        private void CProblemOne()
 //        {
-//            // Create a new Product object and add that product to the Products table using LINQ. Choose any name and product info you like.
+//            // Create a new Product object and add that product to the Products table. Choose any name and product info you like.
 
 
 //        }
 
 //        public void CDemoTwo()
 //        {
-//            // Add the role of "Customer" to the user we just created in the UserRoles junction table.
+//            // This will add the role of "Customer" to the user we created in CDemoOne by adding a new row to the UserRoles junction table.
 //            var roleId = _context.Roles.Where(r => r.RoleName == "Customer").Select(r => r.Id).SingleOrDefault();
 //            var userId = _context.Users.Where(u => u.Email == "david@gmail.com").Select(u => u.Id).SingleOrDefault();
 //            UserRole newUserRole = new UserRole()
@@ -192,9 +193,8 @@
 
 //        public void CProblemTwo()
 //        {
-//            // Create a new ShoppingCartItem to represent the new product you created being added to the new User you created's shopping cart.
-//            // Add the product you created to the user we created in the ShoppingCart junction table.
-//            // Return the ShoppingcartItem
+//            // Create a new ShoppingCartItem to represent the new product you created in CProblemOne being added to the shopping cart of the user created in CDemoOne.
+//            // This will add a new row to ShoppingCart junction table.
 
 
 //        }
@@ -204,7 +204,8 @@
 
 //        private void UDemoOne()
 //        {
-//            // This will pdate the email of the user we created to "dan@gmail.com"
+//            // This will update the email of the user from CDemoOne to "dan@gmail.com"
+//            // Remember that after this update occurs, there should be no more "david@gmail.com" on the database!
 //            var user = _context.Users.Where(u => u.Email == "david@gmail.com").SingleOrDefault();
 //            user.Email = "dan@gmail.com";
 //            _context.Users.Update(user);
@@ -213,7 +214,7 @@
 
 //        private void UProblemOne()
 //        {
-//            // Update the price of the product you created to something different using LINQ.
+//            // Update the price of the product you created in CProblemOne to something different using LINQ.
 
 
 //        }
@@ -241,7 +242,7 @@
 //        private void DProblemOne()
 //        {
 //            // Delete all of the product relationships to the user with the email "oda@gmail.com" in the ShoppingCart table using LINQ.
-//            // HINT: Loop
+//            // HINT: Use a Loop
 
 //        }
 
@@ -275,15 +276,14 @@
 //        private void BonusThree()
 //        {
 //            // 1. Create functionality for a user to sign in via the console
-//            // 2. If the user succesfully signs in
-//            // a. Give them a menu where they perform the following actions within the console
-//            // View the products in their shopping cart
-//            // View all products in the Products table
-//            // Add a product to the shopping cart (incrementing quantity if that product is already in their shopping cart)
-//            // Remove a product from their shopping cart
-//            // 3. If the user does not succesfully sing in
-//            // a. Display "Invalid Email or Password"
-//            // b. Re-prompt the user for credentials
+//            // 2. If the user succesfully signs in, give them a menu where they can perform the following actions within the console:
+//            // -View the products in their shopping cart
+//            // -View all products in the Products table
+//            // -Add a product to the shopping cart (incrementing quantity if that product is already in their shopping cart)
+//            // -Remove a product from their shopping cart
+//            // 3. If the user does not successfully sign in
+//            // -Display "Invalid Email or Password"
+//            // -Re-prompt the user for credentials
 
 //        }
 
