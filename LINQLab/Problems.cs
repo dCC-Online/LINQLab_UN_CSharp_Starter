@@ -114,11 +114,11 @@
 //        private void RDemoThree()
 //        {
 //            // This LINQ query will retreive all of the users who are assigned to the role of Customer.
-//            var customerUsers = _context.UserRoles.Include(ur => ur.Role).Include(ur => ur.User).Where(ur => ur.Role.RoleName == "Customer");
+//            var customerUsers = _context.Userroles.Include(ur => ur.Role).Include(ur => ur.User).Where(ur => ur.Role.RoleName == "Customer");
 //            Console.WriteLine("RDemoThree: Customer Users");
-//            foreach (UserRole userRole in customerUsers)
+//            foreach (Userrole Userrole in customerUsers)
 //            {
-//                Console.WriteLine($"Email: {userRole.User.Email} Role: {userRole.Role.RoleName}");
+//                Console.WriteLine($"Email: {Userrole.User.Email} Role: {Userrole.Role.RoleName}");
 //            }
 //        }
 //        public void RProblemSix()
@@ -178,15 +178,15 @@
 
 //        public void CDemoTwo()
 //        {
-//            // This will add the role of "Customer" to the user we created in CDemoOne by adding a new row to the UserRoles junction table.
+//            // This will add the role of "Customer" to the user we created in CDemoOne by adding a new row to the Userroles junction table.
 //            var roleId = _context.Roles.Where(r => r.RoleName == "Customer").Select(r => r.Id).SingleOrDefault();
 //            var userId = _context.Users.Where(u => u.Email == "david@gmail.com").Select(u => u.Id).SingleOrDefault();
-//            UserRole newUserRole = new UserRole()
+//            Userrole newUserrole = new Userrole()
 //            {
 //                UserId = userId,
 //                RoleId = roleId
 //            };
-//            _context.UserRoles.Add(newUserRole);
+//            _context.Userroles.Add(newUserrole);
 //            _context.SaveChanges();
 //            // If you encounter problems running this method, it likely means you ran CDemoOne multiple times and have created duplicate customers with the email "david@gmail.com"
 //        }
@@ -222,7 +222,7 @@
 //        private void UProblemTwo()
 //        {
 //            // Change the role of the user we created to "Employee"
-//            // HINT: You need to delete the existing role relationship and then create a new UserRole object and add it to the UserRoles table
+//            // HINT: You need to delete the existing role relationship and then create a new Userrole object and add it to the Userroles table
 //            // See the DDemoOne below as an example of removing a role relationship
 
 //        }
@@ -232,8 +232,8 @@
 //        private void DDemoOne()
 //        {
 //            // Delete the role relationship from the user who has the email "oda@gmail.com" using LINQ.
-//            var userRole = _context.UserRoles.Where(ur => ur.User.Email == "oda@gmail.com").SingleOrDefault();
-//            _context.UserRoles.Remove(userRole);
+//            var Userrole = _context.Userroles.Where(ur => ur.User.Email == "oda@gmail.com").SingleOrDefault();
+//            _context.Userroles.Remove(Userrole);
 
 //            _context.SaveChanges();
 
