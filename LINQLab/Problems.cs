@@ -71,6 +71,11 @@
 
 //        }
 
+//      /*
+//     Expected Result:
+//     User Count: 5
+//      */
+
 //        public void RDemoTwo()
 //        {
 //            // This LINQ query will get each product whose price is greater than $150.
@@ -89,10 +94,36 @@
 
 //        }
 
+//        /*
+//            Expected Result:
+//
+//            Name: Freedom from the Known - Jiddu Krishnamurti
+//            Price: $14.99
+//
+//            Name: Ball Mason Jar-32 oz.
+//            Price: $8.85
+//
+//            Name: Catan The Board Game
+//            Price: $43.67
+//         */
+
 //        public void RProblemThree()
 //        {
 //            // Write a LINQ query that gets each product whose name that CONTAINS an "s".
 //        }
+//        /*
+//            Expected Result:
+//
+//            Name: Freedom from the Known - Jiddu Krishnamurti
+//
+//            Name: Ball Mason Jar-32 oz.
+//
+//            Name: Stellar Basic Flute Key of G - Native American Style Flute
+//
+//            Name: Apple Watch Series 3
+//
+//            Name: Nintendo Switch
+//         */
 
 //        public void RProblemFour()
 //        {
@@ -100,6 +131,14 @@
 //            // Then print each user's email and registration date to the console.
 
 //        }
+//        /*
+//            Expected Result:
+//
+//            Email: janett@gmail.com
+//            Registration Date: 10/15/2015 12:00:00 AM
+//            Email: gary@gmail.com
+//            Registration Date: 10/15/2012 12:00:00 AM
+//         */
 
 //        public void RProblemFive()
 //        {
@@ -107,7 +146,12 @@
 //            // Then print each user's email and registration date to the console.
 
 //        }
-
+//        /*
+//            Expected Result:
+//
+//            Email: bibi@gmail.com
+//            Registration Date: 4/6/2017 12:00:00 AM
+//         */
 
 //        // <><><><><><><><> R Actions (Read) with Foreign Keys <><><><><><><><><>
 
@@ -128,6 +172,24 @@
 
 
 //        }
+//        /*
+//            Expected Result:
+//            Name: Freedom from the Known - Jiddu Krishnamurti
+//            Price: $14.99
+//            Quantity: 1
+//
+//            Name: Ball Mason Jar-32 oz.
+//            Price: $8.85
+//            Quantity: 10
+//
+//            Name: Catan The Board Game
+//            Price: $43.67
+//            Quantity: 1
+//
+//            Name: Nintendo Switch
+//            Price: $299.00
+//            Quantity: 1
+//        */
 
 //        public void RProblemSeven()
 //        {
@@ -138,6 +200,9 @@
 
 
 //        }
+//        /*
+//         Total: $366.51
+//         */
 
 //        public void RProblemEight()
 //        {
@@ -145,7 +210,27 @@
 //            // Then print the product's name, price, and quantity to the console along with the email of the user that has it in their cart.
 
 //        }
-
+//        /*
+//            Expected Result
+//
+//            User's email: bibi@gmail.com
+//            -----------
+//            Product name: Apple Watch Series 3
+//            Price: 169.00
+//            Quantity:5
+//
+//
+//
+//            User's email: janett@gmail.com
+//            -----------
+//            Product name: Freedom from the Known - Jiddu Krishnamurti
+//            Price: 14.99
+//            Quantity:1
+//
+//            Product name: Catan The Board Game
+//            Price: 43.67
+//            Quantity:1
+//         */
 
 //        // <><><><><><><><> CUD (Create, Update, Delete) Actions <><><><><><><><><>
 
