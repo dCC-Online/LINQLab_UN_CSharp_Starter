@@ -12,7 +12,7 @@ CREATE TABLE ECommerce.Roles (
     RoleName varchar(255) NOT NULL
 );
 
-CREATE TABLE ECommerce.UserRoles (
+CREATE TABLE ECommerce.User_Roles (
     Id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     UserId int,
     RoleId int,
@@ -29,13 +29,13 @@ CREATE TABLE ECommerce.Products (
 );
 
 
-CREATE TABLE ECommerce.ShoppingCart (
+CREATE TABLE ECommerce.Shopping_Cart_Items (
     UserId int,
     ProductId int,
     Quantity int DEFAULT 1,
     FOREIGN KEY (UserId) REFERENCES Users(Id),
     FOREIGN KEY (ProductId) REFERENCES Products(Id),
-    CONSTRAINT PK_ShoppingCart PRIMARY KEY (UserId, ProductId)
+    CONSTRAINT PK_Shopping_Cart_Items PRIMARY KEY (UserId, ProductId)
 );
 
 INSERT INTO ECommerce.Users (Email, Password, RegistrationDate) VALUES ('oda@gmail.com', 'OdasPass123', '2020-1-20');
@@ -49,11 +49,11 @@ INSERT INTO ECommerce.Roles (RoleName) VALUES ('Customer');
 INSERT INTO ECommerce.Roles (RoleName) VALUES ('Employee');
 INSERT INTO ECommerce.Roles (RoleName) VALUES ('Admin');
 
-INSERT INTO ECommerce.UserRoles (Id, UserId, RoleId) VALUES (1, (SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Customer'));
-INSERT INTO ECommerce.UserRoles (Id, UserId, RoleId) VALUES (2, (SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Customer'));
-INSERT INTO ECommerce.UserRoles (Id, UserId, RoleId) VALUES (3, (SELECT Id FROM ECommerce.Users WHERE Email = 'bibi@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Employee'));
-INSERT INTO ECommerce.UserRoles (Id, UserId, RoleId) VALUES (4, (SELECT Id FROM ECommerce.Users WHERE Email = 'janett@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Employee'));
-INSERT INTO ECommerce.UserRoles (Id, UserId, RoleId) VALUES (5, (SELECT Id FROM ECommerce.Users WHERE Email = 'gary@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Admin'));
+INSERT INTO ECommerce.User_Roles (Id, UserId, RoleId) VALUES (1, (SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Customer'));
+INSERT INTO ECommerce.User_Roles (Id, UserId, RoleId) VALUES (2, (SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Customer'));
+INSERT INTO ECommerce.User_Roles (Id, UserId, RoleId) VALUES (3, (SELECT Id FROM ECommerce.Users WHERE Email = 'bibi@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Employee'));
+INSERT INTO ECommerce.User_Roles (Id, UserId, RoleId) VALUES (4, (SELECT Id FROM ECommerce.Users WHERE Email = 'janett@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Employee'));
+INSERT INTO ECommerce.User_Roles (Id, UserId, RoleId) VALUES (5, (SELECT Id FROM ECommerce.Users WHERE Email = 'gary@gmail.com'), (SELECT Id FROM ECommerce.Roles WHERE RoleName = 'Admin'));
 
 
 INSERT INTO ECommerce.Products (Name, Description, Price) VALUES ('Gazelle 22272 T4 Pop-Up', ' A 90 second set-up and packs up into a 67.5 inch duffle bag. Spaciously sleep up to four people, standing 78 in tall.', 279.99);
@@ -64,14 +64,14 @@ INSERT INTO ECommerce.Products (Name, Description, Price) VALUES ('Catan The Boa
 INSERT INTO ECommerce.Products (Name, Description, Price) VALUES ('Apple Watch Series 3', 'Fitness Tracker, Sleep Monitor, GPS, Pedometer, Heart Rate Monitor', 169.00);
 INSERT INTO ECommerce.Products (Name, Description, Price) VALUES ('Nintendo Switch', 'Get the gaming system that lets you play the games you want, wherever you are, however you like.', 299.00);
 
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), 1);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), 3);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), 4);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), 7);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), 7);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), 2);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId, Quantity) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), 3, 10);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), 5);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'janett@gmail.com'), 2);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'janett@gmail.com'), 5);
-INSERT INTO ECommerce.ShoppingCart (UserId, ProductId, Quantity) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'bibi@gmail.com'), 6, 5);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), 1);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), 3);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), 4);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'oda@gmail.com'), 7);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), 7);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), 2);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId, Quantity) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), 3, 10);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'afton@gmail.com'), 5);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'janett@gmail.com'), 2);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'janett@gmail.com'), 5);
+INSERT INTO ECommerce.Shopping_Cart_Items (UserId, ProductId, Quantity) VALUES ((SELECT Id FROM ECommerce.Users WHERE Email = 'bibi@gmail.com'), 6, 5);
